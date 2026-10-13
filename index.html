@@ -6,12 +6,16 @@
   :root { --accent:#8a6d3b; --bg:#faf6ef; --card:#fff; --ink:#241f17; --kr:#6b6356; --line:#ece3d3; }
   * { box-sizing:border-box; }
   body { margin:0; font-family:'Noto Sans KR','Apple SD Gothic Neo',-apple-system,sans-serif; background:var(--bg); color:var(--ink); line-height:1.65; }
-  .wrap { max-width:820px; margin:0 auto; padding:32px 18px 90px; }
+  .wrap { max-width:820px; margin:0 auto; padding:0 18px 90px; }
+  .nav { display:flex; gap:14px; align-items:center; padding:14px 0; font-size:14px; font-weight:600; flex-wrap:wrap; }
+  .nav a { color:var(--accent); text-decoration:none; }
+  .nav a:hover { text-decoration:underline; }
+  .nav .sp { flex:1; }
   header { border-bottom:2px solid var(--accent); padding-bottom:18px; }
   .kicker { font-size:12px; letter-spacing:1.5px; color:var(--accent); font-weight:700; text-transform:uppercase; }
   h1 { font-size:27px; margin:8px 0 6px; line-height:1.3; }
   .byline { color:var(--kr); font-size:14px; }
-  .toolbar { display:flex; gap:10px; flex-wrap:wrap; margin:20px 0 22px; position:sticky; top:0; background:var(--bg); padding:10px 0; }
+  .toolbar { display:flex; gap:10px; flex-wrap:wrap; margin:20px 0 22px; position:sticky; top:0; background:var(--bg); padding:10px 0; z-index:5; }
   .toolbar button { border:1px solid var(--accent); background:#fff; color:var(--accent); border-radius:999px; padding:8px 16px; font-size:14px; cursor:pointer; font-weight:600; }
   .toolbar button:hover, .toolbar button.active { background:var(--accent); color:#fff; }
   .item { display:flex; gap:14px; align-items:flex-start; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:15px; margin-bottom:12px; }
@@ -24,8 +28,15 @@
   .kr { color:var(--kr); font-size:15px; }
   .foot { text-align:center; color:var(--kr); font-size:12px; margin-top:30px; }
   .foot a { color:var(--accent); }
-  @media (max-width:520px) { h1 { font-size:22px; } .en { font-size:16px; } .wrap { padding:22px 14px 70px; } }
+  .list-title { font-size:20px; margin:6px 0 18px; }
+  .day { display:block; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin-bottom:10px; text-decoration:none; color:var(--ink); }
+  .day:hover { border-color:var(--accent); }
+  .day .d { font-weight:700; color:var(--accent); font-size:14px; }
+  .day .t { font-size:16px; margin-top:2px; }
+  .day .m { color:var(--kr); font-size:12px; margin-top:4px; }
+  @media (max-width:520px) { h1 { font-size:22px; } .en { font-size:16px; } .wrap { padding:0 14px 70px; } }
 </style></head><body><div class="wrap">
+<div class="nav"><a href="archive/index.html">&#8592; 지난 방송 목록</a></div>
 <header>
   <div class="kicker">EBS 모닝스페셜 · News Coverage from The New York Times</div>
   <h1>Forget Quiet Luxury. In Ancient Rome, the Fashion Was Loud.</h1>
@@ -42,169 +53,169 @@
     <button class="play" data-i="1" aria-label="Play">&#9654;</button>
     <div class="text"><div class="en"><span class="num">1.</span>As Rome consolidated its control over the Mediterranean and beyond in the early centuries of the first millennium, a thriving trade network fueled an increasingly consumerist society.</div>
     <div class="kr">로마가 첫 천년기 초반 몇 세기 동안 지중해와 그 너머에 대한 지배권을 공고히 해 나가면서, 번성하던 무역 네트워크는 점점 더 소비 지향적인 사회를 부추겼습니다.</div></div>
-    <audio id="a1" preload="none" src="audio/s01.m4a"></audio>
+    <audio id="a1" preload="none" src="audio/2026-10-13/s01.m4a"></audio>
   </div>
   <div class="item">
     <button class="play" data-i="2" aria-label="Play">&#9654;</button>
     <div class="text"><div class="en"><span class="num">2.</span>Fashion trends and materials, like silk, pearls and dyes, flowed in from encounters with other cultures and helped demarcate social hierarchies in Rome.</div>
     <div class="kr">실크, 진주, 염료 같은 패션 트렌드와 재료들은 다른 문화와의 교류를 통해 유입되어, 로마의 사회적 위계를 구분 짓는 데 기여했습니다.</div></div>
-    <audio id="a2" preload="none" src="audio/s02.m4a"></audio>
+    <audio id="a2" preload="none" src="audio/2026-10-13/s02.m4a"></audio>
   </div>
   <div class="item">
     <button class="play" data-i="3" aria-label="Play">&#9654;</button>
     <div class="text"><div class="en"><span class="num">3.</span>The more exotic or rarefied your outfit was, the more clout you carried.</div>
     <div class="kr">복장이 더 이국적이거나 귀할수록, 그만큼 더 큰 영향력을 지녔습니다.</div></div>
-    <audio id="a3" preload="none" src="audio/s03.m4a"></audio>
+    <audio id="a3" preload="none" src="audio/2026-10-13/s03.m4a"></audio>
   </div>
   <div class="item">
     <button class="play" data-i="4" aria-label="Play">&#9654;</button>
     <div class="text"><div class="en"><span class="num">4.</span>Textiles decay easily, and hard evidence for Roman fashion is vanishingly rare.</div>
     <div class="kr">직물은 쉽게 썩기 때문에, 로마 패션에 대한 확실한 증거는 극히 드뭅니다.</div></div>
-    <audio id="a4" preload="none" src="audio/s04.m4a"></audio>
+    <audio id="a4" preload="none" src="audio/2026-10-13/s04.m4a"></audio>
   </div>
   <div class="item">
     <button class="play" data-i="5" aria-label="Play">&#9654;</button>
     <div class="text"><div class="en"><span class="num">5.</span>But Roman portrait sculpture can tell us a lot about clothing, hairstyles and jewelry — even what perfumes people used.</div>
     <div class="kr">하지만 로마의 초상 조각은 의복, 헤어스타일, 장신구에 대해 많은 것을 알려 줍니다 — 심지어 어떤 향수를 썼는지까지도요.</div></div>
-    <audio id="a5" preload="none" src="audio/s05.m4a"></audio>
+    <audio id="a5" preload="none" src="audio/2026-10-13/s05.m4a"></audio>
   </div>
   <div class="item">
     <button class="play" data-i="6" aria-label="Play">&#9654;</button>
     <div class="text"><div class="en"><span class="num">6.</span>And because these statues broadcast idealized versions of their subjects, they reveal even more about how people wanted to be seen.</div>
     <div class="kr">그리고 이 조각상들은 대상 인물의 이상화된 모습을 널리 보여 주는 것이기에, 사람들이 어떻게 보이고 싶어 했는지를 한층 더 잘 드러냅니다.</div></div>
-    <audio id="a6" preload="none" src="audio/s06.m4a"></audio>
+    <audio id="a6" preload="none" src="audio/2026-10-13/s06.m4a"></audio>
   </div>
   <div class="item">
     <button class="play" data-i="7" aria-label="Play">&#9654;</button>
     <div class="text"><div class="en"><span class="num">7.</span>Perhaps predictably, many sculptures in the exhibition feature a subject wearing a toga or a stola, a sort of pinafore for women.</div>
     <div class="kr">어쩌면 예상대로, 전시의 많은 조각상들은 토가나 여성용 원피스형 앞치마라 할 수 있는 스톨라를 입은 인물을 묘사하고 있습니다.</div></div>
-    <audio id="a7" preload="none" src="audio/s07.m4a"></audio>
+    <audio id="a7" preload="none" src="audio/2026-10-13/s07.m4a"></audio>
   </div>
   <div class="item">
     <button class="play" data-i="8" aria-label="Play">&#9654;</button>
     <div class="text"><div class="en"><span class="num">8.</span>These garments, which telegraphed Roman citizenship, remained remarkably unchanged over the centuries.</div>
     <div class="kr">로마 시민권을 드러내는 이 의복들은 수 세기 동안 놀라울 정도로 변함없이 유지되었습니다.</div></div>
-    <audio id="a8" preload="none" src="audio/s08.m4a"></audio>
+    <audio id="a8" preload="none" src="audio/2026-10-13/s08.m4a"></audio>
   </div>
   <div class="item">
     <button class="play" data-i="9" aria-label="Play">&#9654;</button>
     <div class="text"><div class="en"><span class="num">9.</span>But ornaments, hairstyles and dyes offered a way of standing out.</div>
     <div class="kr">그러나 장신구, 헤어스타일, 염료는 남들과 구별되는 수단을 제공했습니다.</div></div>
-    <audio id="a9" preload="none" src="audio/s09.m4a"></audio>
+    <audio id="a9" preload="none" src="audio/2026-10-13/s09.m4a"></audio>
   </div>
   <div class="item">
     <button class="play" data-i="10" aria-label="Play">&#9654;</button>
     <div class="text"><div class="en"><span class="num">10.</span>Many of the statues were originally painted in vibrant pigments, although barely any trace is left today.</div>
     <div class="kr">많은 조각상들은 원래 선명한 색소로 채색되어 있었지만, 오늘날에는 그 흔적이 거의 남아 있지 않습니다.</div></div>
-    <audio id="a10" preload="none" src="audio/s10.m4a"></audio>
+    <audio id="a10" preload="none" src="audio/2026-10-13/s10.m4a"></audio>
   </div>
   <div class="item">
     <button class="play" data-i="11" aria-label="Play">&#9654;</button>
     <div class="text"><div class="en"><span class="num">11.</span>The Glyptotek, a major center for research on the use of color in ancient sculpture, has used paint residue analysis to produce digital reconstructions displayed on screens in the show.</div>
     <div class="kr">고대 조각의 색채 사용 연구에서 주요 중심지인 글립토테크 미술관은 페인트 잔여물 분석을 활용해, 전시장 화면에 표시되는 디지털 복원 영상을 제작했습니다.</div></div>
-    <audio id="a11" preload="none" src="audio/s11.m4a"></audio>
+    <audio id="a11" preload="none" src="audio/2026-10-13/s11.m4a"></audio>
   </div>
   <div class="item">
     <button class="play" data-i="12" aria-label="Play">&#9654;</button>
     <div class="text"><div class="en"><span class="num">12.</span>Dyes for garments were sourced from around the empire.</div>
     <div class="kr">의복용 염료는 제국 전역에서 조달되었습니다.</div></div>
-    <audio id="a12" preload="none" src="audio/s12.m4a"></audio>
+    <audio id="a12" preload="none" src="audio/2026-10-13/s12.m4a"></audio>
   </div>
   <div class="item">
     <button class="play" data-i="13" aria-label="Play">&#9654;</button>
     <div class="text"><div class="en"><span class="num">13.</span>Purple — the most prestigious — was traditionally restricted to the garments of the elite.</div>
     <div class="kr">가장 권위 있는 색인 보라색은 전통적으로 엘리트 계층의 의복에만 쓰이도록 제한되었습니다.</div></div>
-    <audio id="a13" preload="none" src="audio/s13.m4a"></audio>
+    <audio id="a13" preload="none" src="audio/2026-10-13/s13.m4a"></audio>
   </div>
   <div class="item">
     <button class="play" data-i="14" aria-label="Play">&#9654;</button>
     <div class="text"><div class="en"><span class="num">14.</span>The best purples came from the glands of Murex sea snails from the eastern Mediterranean, an exploitative practice that nearly drove the species to extinction.</div>
     <div class="kr">최고급 보라색은 동부 지중해산 무렉스 바다 달팽이의 분비샘에서 얻었는데, 이는 그 종을 거의 멸종으로 몰아간 착취적 관행이었습니다.</div></div>
-    <audio id="a14" preload="none" src="audio/s14.m4a"></audio>
+    <audio id="a14" preload="none" src="audio/2026-10-13/s14.m4a"></audio>
   </div>
   <div class="item">
     <button class="play" data-i="15" aria-label="Play">&#9654;</button>
     <div class="text"><div class="en"><span class="num">15.</span>&quot;The word sustainability wouldn&#x27;t make any sense to Romans,&quot; Broens said.</div>
     <div class="kr">&quot;지속가능성이라는 단어는 로마인들에게 아무 의미도 없었을 겁니다&quot;라고 브로엔스는 말했습니다.</div></div>
-    <audio id="a15" preload="none" src="audio/s15.m4a"></audio>
+    <audio id="a15" preload="none" src="audio/2026-10-13/s15.m4a"></audio>
   </div>
   <div class="item">
     <button class="play" data-i="16" aria-label="Play">&#9654;</button>
     <div class="text"><div class="en"><span class="num">16.</span>Other dyes from imperial provinces were equally valuable and signified wealth, like kermes, a vermilion derived from insects, or saffron.</div>
     <div class="kr">제국의 속주들에서 온 다른 염료들도 마찬가지로 귀했고 부를 상징했는데, 곤충에서 추출한 주홍색 염료인 케르메스나 사프란이 그 예입니다.</div></div>
-    <audio id="a16" preload="none" src="audio/s16.m4a"></audio>
+    <audio id="a16" preload="none" src="audio/2026-10-13/s16.m4a"></audio>
   </div>
   <div class="item">
     <button class="play" data-i="17" aria-label="Play">&#9654;</button>
     <div class="text"><div class="en"><span class="num">17.</span>These dyes were used for the clothes of wealthy citizens outside the Roman elite, including freed slaves, who were not allowed to wear purple.</div>
     <div class="kr">이 염료들은 보라색을 입는 것이 허용되지 않았던 해방 노예를 포함해, 로마 엘리트 계층 밖의 부유한 시민들의 옷에 사용되었습니다.</div></div>
-    <audio id="a17" preload="none" src="audio/s17.m4a"></audio>
+    <audio id="a17" preload="none" src="audio/2026-10-13/s17.m4a"></audio>
   </div>
   <div class="item">
     <button class="play" data-i="18" aria-label="Play">&#9654;</button>
     <div class="text"><div class="en"><span class="num">18.</span>Other fashion trends, like hairstyles, could reflect Roman conquests.</div>
     <div class="kr">헤어스타일 같은 다른 패션 트렌드는 로마의 정복을 반영하기도 했습니다.</div></div>
-    <audio id="a18" preload="none" src="audio/s18.m4a"></audio>
+    <audio id="a18" preload="none" src="audio/2026-10-13/s18.m4a"></audio>
   </div>
   <div class="item">
     <button class="play" data-i="19" aria-label="Play">&#9654;</button>
     <div class="text"><div class="en"><span class="num">19.</span>When Rome was struggling to subdue Germanic territories in the first century, elite women often wore wigs made from the blond hair of Germanic captives or tried to imitate the color with dye.</div>
     <div class="kr">로마가 1세기에 게르만 지역을 복속시키는 데 어려움을 겪고 있을 때, 엘리트 여성들은 게르만 포로의 금발 머리카락으로 만든 가발을 쓰거나, 염료로 그 색을 흉내 내려 했습니다.</div></div>
-    <audio id="a19" preload="none" src="audio/s19.m4a"></audio>
+    <audio id="a19" preload="none" src="audio/2026-10-13/s19.m4a"></audio>
   </div>
   <div class="item">
     <button class="play" data-i="20" aria-label="Play">&#9654;</button>
     <div class="text"><div class="en"><span class="num">20.</span>In this case, Broens said, &quot;Women&#x27;s beauty was quite literally constructed from subjugated peoples.&quot;</div>
     <div class="kr">이에 대해 브로엔스는 &quot;여성의 아름다움은 말 그대로 정복된 민족들로부터 만들어졌다&quot;고 말했습니다.</div></div>
-    <audio id="a20" preload="none" src="audio/s20.m4a"></audio>
+    <audio id="a20" preload="none" src="audio/2026-10-13/s20.m4a"></audio>
   </div>
   <div class="item">
     <button class="play" data-i="21" aria-label="Play">&#9654;</button>
     <div class="text"><div class="en"><span class="num">21.</span>Yet not all foreign influences were harvested by force.</div>
     <div class="kr">하지만 모든 외래의 영향이 무력으로 거둬들여진 것은 아니었습니다.</div></div>
-    <audio id="a21" preload="none" src="audio/s21.m4a"></audio>
+    <audio id="a21" preload="none" src="audio/2026-10-13/s21.m4a"></audio>
   </div>
   <div class="item">
     <button class="play" data-i="22" aria-label="Play">&#9654;</button>
     <div class="text"><div class="en"><span class="num">22.</span>As Rome&#x27;s elite diversified, hairstyles were borrowed for cosmopolitan cachet.</div>
     <div class="kr">로마의 엘리트가 다양해지면서, 헤어스타일은 국제적인 위신을 얻기 위해 차용되었습니다.</div></div>
-    <audio id="a22" preload="none" src="audio/s22.m4a"></audio>
+    <audio id="a22" preload="none" src="audio/2026-10-13/s22.m4a"></audio>
   </div>
   <div class="item">
     <button class="play" data-i="23" aria-label="Play">&#9654;</button>
     <div class="text"><div class="en"><span class="num">23.</span>Julia Domna, the wife of the emperor Septimius Severus, came from a powerful Syrian family, and her distinctive coiffure appears to have been a popular style in that region.</div>
     <div class="kr">셉티미우스 세베루스 황제의 아내인 율리아 돔나는 강력한 시리아 가문 출신이었고, 그녀의 독특한 머리 모양은 그 지역에서 유행하던 스타일이었던 것으로 보입니다.</div></div>
-    <audio id="a23" preload="none" src="audio/s23.m4a"></audio>
+    <audio id="a23" preload="none" src="audio/2026-10-13/s23.m4a"></audio>
   </div>
   <div class="item">
     <button class="play" data-i="24" aria-label="Play">&#9654;</button>
     <div class="text"><div class="en"><span class="num">24.</span>A portrait bust in the exhibition displays the look, which was widely copied.</div>
     <div class="kr">전시에 나온 한 초상 흉상이 그 모습을 보여 주는데, 이 스타일은 널리 모방되었습니다.</div></div>
-    <audio id="a24" preload="none" src="audio/s24.m4a"></audio>
+    <audio id="a24" preload="none" src="audio/2026-10-13/s24.m4a"></audio>
   </div>
   <div class="item">
     <button class="play" data-i="25" aria-label="Play">&#9654;</button>
     <div class="text"><div class="en"><span class="num">25.</span>We also know that perfume styles tracked the empire&#x27;s expansion, with popular varieties including &quot;Egyptian&quot; and &quot;Assyrian.&quot;</div>
     <div class="kr">우리는 또한 향수 스타일이 제국의 확장을 따라갔다는 것을 아는데, 인기 있는 종류로는 &quot;이집트산&quot;과 &quot;아시리아산&quot;이 있었습니다.</div></div>
-    <audio id="a25" preload="none" src="audio/s25.m4a"></audio>
+    <audio id="a25" preload="none" src="audio/2026-10-13/s25.m4a"></audio>
   </div>
   <div class="item">
     <button class="play" data-i="26" aria-label="Play">&#9654;</button>
     <div class="text"><div class="en"><span class="num">26.</span>Recent research shows that statues of the elite would even be regularly anointed with scents.</div>
     <div class="kr">최근 연구에 따르면, 엘리트의 조각상들에는 정기적으로 향을 발라 주기까지 했습니다.</div></div>
-    <audio id="a26" preload="none" src="audio/s26.m4a"></audio>
+    <audio id="a26" preload="none" src="audio/2026-10-13/s26.m4a"></audio>
   </div>
   <div class="item">
     <button class="play" data-i="27" aria-label="Play">&#9654;</button>
     <div class="text"><div class="en"><span class="num">27.</span>Some recipes for scents survive, but we&#x27;ll never know what they really smelled like.</div>
     <div class="kr">향에 대한 제조법 일부는 남아 있지만, 그것들이 실제로 어떤 향이었는지는 결코 알 수 없을 것입니다.</div></div>
-    <audio id="a27" preload="none" src="audio/s27.m4a"></audio>
+    <audio id="a27" preload="none" src="audio/2026-10-13/s27.m4a"></audio>
   </div>
   <div class="item">
     <button class="play" data-i="28" aria-label="Play">&#9654;</button>
     <div class="text"><div class="en"><span class="num">28.</span>Instead, the Glyptotek invited Danish cosmetics brand Karmameju to create its own interpretations — bringing a touch of Scandinavian elegance to the imperial glitz.</div>
     <div class="kr">대신 글립토테크 미술관은 덴마크 화장품 브랜드 카르마메주를 초청해 나름의 해석을 만들게 했습니다 — 제국의 화려함에 스칸디나비아의 우아함을 한 스푼 더한 것이죠.</div></div>
-    <audio id="a28" preload="none" src="audio/s28.m4a"></audio>
+    <audio id="a28" preload="none" src="audio/2026-10-13/s28.m4a"></audio>
   </div>
 <div class="foot">출처: EBS 최수진의 모닝스페셜 방송 내용 게시판 · <a href="https://home.ebs.co.kr/morning/board/6/502387/view/30000363383?hmpMnuId=101" target="_blank" rel="noopener">원문 보기</a><br>
 본 텍스트는 학습용으로 정리한 것으로 원문과 다를 수 있습니다.</div>
@@ -212,7 +223,6 @@
 const audios = {};
 document.querySelectorAll('audio').forEach(a => audios[a.id.slice(1)] = a);
 let current = null, currentBtn = null, sequential = false, rate = 1;
-function fmt(p){ if(!isFinite(p)) return 0; return p; }
 function stop(){ Object.values(audios).forEach(a=>{a.pause();a.currentTime=0;}); if(currentBtn)currentBtn.classList.remove('playing'); if(current)current.removeEventListener('ended',onEnded); current=null;currentBtn=null;sequential=false; }
 function playOne(i,btn){ stop(); const a=audios[i]; if(!a)return; current=a; currentBtn=btn; a.playbackRate=rate; btn.classList.add('playing'); a.addEventListener('ended',onEnded); a.play().catch(()=>{}); }
 function onEnded(){ if(currentBtn)currentBtn.classList.remove('playing'); const fin=current?current.id.slice(1):null; current=null;currentBtn=null; if(sequential&&fin){ const n=parseInt(fin)+1; const b=document.querySelector('.play[data-i="'+n+'"]'); if(b)playOne(n,b); else sequential=false; } }
