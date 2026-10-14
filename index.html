@@ -23,6 +23,7 @@
   .play { flex:0 0 44px; height:44px; border-radius:50%; border:none; background:var(--accent); color:#fff; font-size:15px; cursor:pointer; transition:transform .1s; }
   .play:hover { transform:scale(1.08); }
   .play.playing { background:#2e7d5b; }
+  .play.paused { background:#c98a2b; }
   .text { flex:1; }
   .num { font-size:11px; font-weight:700; color:var(--accent); margin-right:6px; }
   .en { font-size:17px; font-weight:500; margin-bottom:4px; }
@@ -54,23 +55,29 @@ function buildSelect(){
   });
 }
 
+const ICON_PLAY='&#9654;', ICON_PAUSE='&#10074;&#10074;';
+function resetBtns(){ document.querySelectorAll('.play').forEach(b=>{b.classList.remove('playing','paused'); b.innerHTML=ICON_PLAY;}); }
 function stop(){
   document.querySelectorAll('audio').forEach(a=>{a.pause();a.currentTime=0;});
-  if(currentBtn)currentBtn.classList.remove('playing');
   if(current)current.removeEventListener('ended',onEnded);
-  current=null;currentBtn=null;sequential=false;
-}
-function playOne(i,btn){
-  stop();
-  const a=document.getElementById('a'+i);
-  if(!a)return;
-  current=a;currentBtn=btn;a.playbackRate=rate;btn.classList.add('playing');
-  a.addEventListener('ended',onEnded);a.play().catch(()=>{});
+  current=null;currentBtn=null;sequential=false;resetBtns();
 }
 function onEnded(){
-  if(currentBtn)currentBtn.classList.remove('playing');
+  if(currentBtn){currentBtn.classList.remove('playing','paused');currentBtn.innerHTML=ICON_PLAY;}
   const fin=current?current.id.slice(1):null;current=null;currentBtn=null;
-  if(sequential&&fin){const n=parseInt(fin)+1;const b=document.querySelector('.play[data-i="'+n+'"]');if(b)playOne(n,b);else sequential=false;}
+  if(sequential&&fin){const n=parseInt(fin)+1;const b=document.querySelector('.play[data-i="'+n+'"]');if(b)toggle(n,b);else sequential=false;}
+}
+function toggle(i,btn){
+  const a=document.getElementById('a'+i);
+  if(!a)return;
+  // 같은 문장: 재생 중이면 일시정지, 일시정지 상태면 이어서 재생
+  if(current===a && !a.paused){ a.pause(); btn.classList.remove('playing'); btn.classList.add('paused'); btn.innerHTML=ICON_PLAY; return; }
+  if(current===a && a.paused){ a.playbackRate=rate; a.play().catch(()=>{}); btn.classList.remove('paused'); btn.classList.add('playing'); btn.innerHTML=ICON_PAUSE; return; }
+  // 다른 문장: 정지 후 새로 재생
+  stop();
+  current=a;currentBtn=btn;a.playbackRate=rate;
+  btn.classList.add('playing'); btn.innerHTML=ICON_PAUSE;
+  a.addEventListener('ended',onEnded);a.play().catch(()=>{});
 }
 
 function render(i, push){
@@ -100,9 +107,9 @@ function render(i, push){
     +'<div class="foot">출처: EBS 최수진의 모닝스페셜 방송 내용 게시판 · <a href="'+esc(d.source_url)+'" target="_blank" rel="noopener">원문 보기</a><br>'
     +'본 텍스트는 학습용으로 정리한 것으로 원문과 다를 수 있습니다.</div>';
 
-  view.querySelectorAll('.play').forEach(b=>b.addEventListener('click',()=>playOne(parseInt(b.dataset.i),b)));
+  view.querySelectorAll('.play').forEach(b=>b.addEventListener('click',()=>toggle(parseInt(b.dataset.i),b)));
   view.querySelector('#stopAll').addEventListener('click',stop);
-  view.querySelector('#playAll').addEventListener('click',()=>{stop();sequential=true;playOne(1,view.querySelector('.play[data-i="1"]'));});
+  view.querySelector('#playAll').addEventListener('click',()=>{stop();sequential=true;toggle(1,view.querySelector('.play[data-i="1"]'));});
   view.querySelectorAll('.speed').forEach(b=>b.addEventListener('click',()=>{
     rate=parseFloat(b.dataset.r);
     view.querySelectorAll('.speed').forEach(x=>x.classList.remove('active'));
