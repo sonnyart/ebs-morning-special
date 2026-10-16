@@ -39,9 +39,11 @@ CSS = """
   .kicker { font-size:12px; letter-spacing:1.5px; color:var(--accent); font-weight:700; text-transform:uppercase; }
   h1 { font-size:27px; margin:8px 0 6px; line-height:1.3; }
   .byline { color:var(--kr); font-size:14px; }
-  .toolbar { display:flex; gap:10px; flex-wrap:wrap; margin:18px 0 22px; }
-  .toolbar button { border:1px solid var(--accent); background:#fff; color:var(--accent); border-radius:999px; padding:8px 16px; font-size:14px; cursor:pointer; font-weight:600; }
-  .toolbar button:hover, .toolbar button.active { background:var(--accent); color:#fff; }
+  .fav { flex:0 0 42px; height:42px; border:none; background:transparent; color:#c9a86a; font-size:24px; cursor:pointer; line-height:1; padding:0; }
+  .fav:hover { transform:scale(1.18); color:#e0a400; }
+  .fav.on { color:#e0a400; }
+  .favlink { margin-left:auto; border:1px solid var(--accent); background:#fff; color:var(--accent); border-radius:999px; padding:9px 15px; font-size:14px; font-weight:600; text-decoration:none; }
+  .favlink:hover { background:var(--accent); color:#fff; }
   .item { display:flex; gap:14px; align-items:flex-start; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:15px; margin-bottom:12px; }
   .play { flex:0 0 44px; height:44px; border-radius:50%; border:none; background:var(--accent); color:#fff; font-size:15px; cursor:pointer; transition:transform .1s; }
   .play:hover { transform:scale(1.08); }
@@ -58,7 +60,7 @@ CSS = """
 
 JS = r"""
 const DAYS = __DAYS__;
-let idx = 0, rate = 1, current = null, currentBtn = null, sequential = false;
+let idx = 0, rate = 1, current = null, currentBtn = null;
 const view = document.getElementById('dayView');
 const sel = document.getElementById('daySelect');
 
@@ -73,16 +75,28 @@ function buildSelect(){
 }
 
 const ICON_PLAY='&#9654;', ICON_PAUSE='&#10074;&#10074;';
+const FAV_KEY='ebs_ms_favs';
+function getFavs(){ try{ return JSON.parse(localStorage.getItem(FAV_KEY)||'[]'); }catch(e){ return []; } }
+function setFavs(v){ localStorage.setItem(FAV_KEY, JSON.stringify(v)); }
+function isFav(id){ return getFavs().some(f=>f.id===id); }
+function toggleFav(d, n, btn){
+  const id=d.slug+':'+n;
+  let favs=getFavs();
+  const i=favs.findIndex(f=>f.id===id);
+  if(i>=0){ favs.splice(i,1); } else { favs.push({id:id, slug:d.slug, date:d.date, title_en:d.title_en, en:d.sentences[n-1].en, kr:d.sentences[n-1].kr, n:n}); }
+  setFavs(favs);
+  btn.innerHTML = i>=0 ? '&#9734;' : '&#9733;';
+  btn.classList.toggle('on', i<0);
+}
 function resetBtns(){ document.querySelectorAll('.play').forEach(b=>{b.classList.remove('playing','paused'); b.innerHTML=ICON_PLAY;}); }
 function stop(){
   document.querySelectorAll('audio').forEach(a=>{a.pause();a.currentTime=0;});
   if(current)current.removeEventListener('ended',onEnded);
-  current=null;currentBtn=null;sequential=false;resetBtns();
+  current=null;currentBtn=null;resetBtns();
 }
 function onEnded(){
   if(currentBtn){currentBtn.classList.remove('playing','paused');currentBtn.innerHTML=ICON_PLAY;}
-  const fin=current?current.id.slice(1):null;current=null;currentBtn=null;
-  if(sequential&&fin){const n=parseInt(fin)+1;const b=document.querySelector('.play[data-i="'+n+'"]');if(b)toggle(n,b);else sequential=false;}
+  current=null;currentBtn=null;
 }
 function toggle(i,btn){
   const a=document.getElementById('a'+i);
@@ -106,6 +120,7 @@ function render(i, push){
     +'<button class="play" data-i="'+(n+1)+'" aria-label="Play">&#9654;</button>'
     +'<div class="text"><div class="en"><span class="num">'+(n+1)+'.</span>'+esc(s.en)+'</div>'
     +'<div class="kr">'+esc(s.kr)+'</div></div>'
+    +'<button class="fav" data-i="'+(n+1)+'" aria-label="즐겨찾기">&#9734;</button>'
     +'<audio id="a'+(n+1)+'" preload="none" src="audio/'+d.slug+'/s'+String(n+1).padStart(2,'0')+'.m4a"></audio>'
     +'</div>').join('');
   view.innerHTML='<header>'
@@ -113,27 +128,18 @@ function render(i, push){
     +'<h1>'+esc(d.title_en)+'</h1>'
     +'<div class="byline">'+esc(d.author)+' · '+esc(d.copyright)+' · '+esc(d.date)+'</div>'
     +'</header>'
-    +'<div class="toolbar">'
-    +'<button id="playAll">&#9654; 모두 재생</button>'
-    +'<button id="stopAll">&#9632; 정지</button>'
-    +'<button class="speed" data-r="0.75">0.75x</button>'
-    +'<button class="speed" data-r="1">1x</button>'
-    +'<button class="speed" data-r="1.25">1.25x</button>'
-    +'</div>'
     +rows
     +'<div class="foot">출처: EBS 최수진의 모닝스페셜 방송 내용 게시판 · <a href="'+esc(d.source_url)+'" target="_blank" rel="noopener">원문 보기</a><br>'
     +'본 텍스트는 학습용으로 정리한 것으로 원문과 다를 수 있습니다.</div>';
 
   view.querySelectorAll('.play').forEach(b=>b.addEventListener('click',()=>toggle(parseInt(b.dataset.i),b)));
-  view.querySelector('#stopAll').addEventListener('click',stop);
-  view.querySelector('#playAll').addEventListener('click',()=>{stop();sequential=true;toggle(1,view.querySelector('.play[data-i="1"]'));});
-  view.querySelectorAll('.speed').forEach(b=>b.addEventListener('click',()=>{
-    rate=parseFloat(b.dataset.r);
-    view.querySelectorAll('.speed').forEach(x=>x.classList.remove('active'));
-    b.classList.add('active');
-    if(current)current.playbackRate=rate;
-  }));
-  const act=view.querySelector('.speed[data-r="'+rate+'"]'); if(act)act.classList.add('active');
+  view.querySelectorAll('.fav').forEach(b=>{
+    const n=parseInt(b.dataset.i);
+    const on=isFav(d.slug+':'+n);
+    b.innerHTML=on?'&#9733;':'&#9734;';
+    b.classList.toggle('on',on);
+    b.addEventListener('click',()=>toggleFav(d,n,b));
+  });
 
   sel.value=i;
   document.getElementById('prevDay').disabled = i>=DAYS.length-1;
@@ -209,6 +215,7 @@ def build_index(days):
   <select id="daySelect" aria-label="날짜 선택"></select>
   <button id="nextDay" title="다음 방송">&#9654;</button>
   <button id="todayBtn">최신</button>
+  <a class="favlink" href="favorites.html">&#9733; 즐겨찾기</a>
 </div>
 <div id="dayView"></div>
 </div><script>{js}</script></body></html>"""
