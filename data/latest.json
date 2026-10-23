@@ -1,161 +1,89 @@
 {
-  "date": "2026.10.22. Thu.",
-  "title_en": "Should You Put Your Books in the Freezer?",
-  "author": "Martine Thompson",
+  "date": "2026.10.23. Fri.",
+  "title_en": "Was the Human Gut Healthier in Ancient Times?",
+  "author": "Carl Zimmer",
   "copyright": "c.2026 The New York Times Company",
-  "source_url": "https://home.ebs.co.kr/morning/board/6/502387/view/30000364953?hmpMnuId=101",
+  "source_url": "https://home.ebs.co.kr/morning/board/6/502387/view/30000365076?hmpMnuId=101",
   "sentences": [
     {
-      "en": "Maybe it’s been a while since you revisited that favorite novel.",
-      "kr": "좋아하는 소설을 다시 펼쳐본 지 꽤 오래됐을지도 모릅니다."
+      "en": "The human microbiome — the trillions of microbes that live in our guts — was a stable ecosystem for tens of thousands of years before rapidly changing in industrialized countries, raising possible health concerns for modern people, scientists reported on Wednesday.",
+      "kr": "우리 장 속에 사는 수조 개의 미생물을 통틀어 일컫는 인체 마이크로바이옴은 수만 년 동안 안정적인 생태계였는데, 산업화된 국가들에서 급격히 변하면서 현대인의 건강에 대한 우려를 낳을 수 있다고 과학자들이 수요일 보고했습니다."
     },
     {
-      "en": "Or there’s a book you’ve always wanted to read, and you finally have time.",
-      "kr": "아니면 늘 읽고 싶었던 책이 있는데 드디어 시간이 났을 수도 있습니다."
+      "en": "In a study of Africans and South Americans, researchers identified more than 600 species of bacteria that may once have been common in the gut but are now rare or missing entirely from people in most societies today.",
+      "kr": "아프리카인과 남미인을 대상으로 한 연구에서, 연구자들은 한때 장 안에서 흔했지만 오늘날 대부분의 사회에서는 드물어지거나 아예 사라져 버린 박테리아 종을 600종 넘게 확인했습니다."
     },
     {
-      "en": "You settle in, flip open the cover, and there it is: a tiny critter skittering across the page.",
-      "kr": "자리를 잡고 앉아 표지를 넘기면, 바로 그것이 보입니다. 책장 위를 빠르게 기어가는 작은 벌레 말이죠."
+      "en": "Many of these microbes may have benefited people's health, said Justin Sonnenburg, a microbiome scientist at Stanford University and an author of the new study, published in Nature.",
+      "kr": "이 미생물들 가운데 다수는 사람들의 건강에 이로웠을 수 있다고, 스탠퍼드 대학교의 마이크로바이옴 과학자이자 네이처(Nature)에 실린 이번 연구의 저자인 저스틴 소넨버그(Justin Sonnenburg)가 말했습니다."
     },
     {
-      "en": "Then another.",
-      "kr": "그리고 또 한 마리."
+      "en": "The changing microbiome, he speculated, may have helped increase some disorders that are common in the industrialized world, from allergies to dementia.",
+      "kr": "그는 변화한 마이크로바이옴이 알레르기부터 치매까지 산업화된 세계에서 흔한 여러 질환을 늘리는 데 한몫했을 수 있다고 추측했습니다."
     },
     {
-      "en": "Or you spot distressing signs that something has been eating — and living in — the pages.",
-      "kr": "아니면 무언가가 책장을 갉아먹고 그 안에 살고 있다는 불길한 흔적을 발견하게 됩니다."
+      "en": "\"How bad could this be, the fact that we changed our microbiomes so much?\" Sonnenburg said.",
+      "kr": "\"우리가 마이크로바이옴을 그토록 많이 바꿔 버렸다는 사실이 얼마나 나쁠 수 있겠어요?\"라고 소넨버그는 말했습니다."
     },
     {
-      "en": "Book lice are a thing.",
-      "kr": "책좀(book lice)은 실제로 있는 벌레입니다."
+      "en": "\"This study, I think, points to the fact that it could be pretty bad.\"",
+      "kr": "\"제 생각에 이 연구는 그것이 꽤 나쁠 수 있다는 사실을 가리키고 있습니다.\""
     },
     {
-      "en": "So are silverfish — those small, slithering insects attracted to starchy materials found in books and their bindings.",
-      "kr": "좀벌레(silverfish)도 마찬가지입니다. 책과 제본에 들어 있는 녹말 성분에 끌리는, 작고 미끄러지듯 움직이는 곤충이죠."
+      "en": "As humans expanded from Africa about 50,000 years ago, they were still living on the animals they hunted and the wild plants they gathered.",
+      "kr": "약 5만 년 전 인류가 아프리카에서 퍼져 나갈 무렵에도 사람들은 여전히 사냥한 동물과 채집한 야생 식물을 먹고 살았습니다."
     },
     {
-      "en": "Mold can move in.",
-      "kr": "곰팡이가 자리 잡을 수도 있습니다."
+      "en": "It was only about 10,000 years ago that farmers began domesticating crops, precipitating another likely shift in the microbiome.",
+      "kr": "농부들이 작물을 재배하기 시작한 것은 불과 약 1만 년 전의 일로, 이는 마이크로바이옴에 또 한 번의 변화를 촉발했을 가능성이 큽니다."
     },
     {
-      "en": "So if you buy a book at a garage sale or secondhand store, or pluck one off a stoop or from a Little Free Library, you may want to take some preventive measures.",
-      "kr": "그래서 벼룩시장이나 중고 서점에서 책을 사거나, 현관 앞 계단이나 리틀 프리 라이브러리에서 책 한 권을 집어 왔다면, 몇 가지 예방 조치를 취하는 것이 좋습니다."
+      "en": "In recent decades, an even more substantive change took place, as billions of people began eating food rich in sugar and refined grains.",
+      "kr": "최근 수십 년 동안에는 수십억 명의 사람들이 설탕과 정제 곡물이 풍부한 음식을 먹기 시작하면서 훨씬 더 실질적인 변화가 일어났습니다."
     },
     {
-      "en": "Which brings us to the freezer.",
-      "kr": "그래서 등장하는 것이 바로 냉동실입니다."
+      "en": "And modern medicine also may have had a profound effect: Antibiotics have saved countless lives, but the drugs can also destroy beneficial microbes in the gut.",
+      "kr": "그리고 현대 의학도 깊은 영향을 미쳤을 수 있습니다. 항생제는 수많은 생명을 구했지만, 이 약은 장 속의 유익한 미생물까지 파괴할 수 있기 때문입니다."
     },
     {
-      "en": "Logan Spurgeon, the author of “Hinterland” and “Sourwood,” started freezing his books after bringing several home from a thrift store with a noticeable smell.",
-      "kr": "『힌터랜드(Hinterland)』와 『사워우드(Sourwood)』의 저자 로건 스펄전(Logan Spurgeon)은 중고 상점에서 냄새가 나는 책 몇 권을 집에 가져온 뒤로 책을 얼리기 시작했습니다."
+      "en": "In all, the findings hint that hunter-gatherers shared a distinctive ecosystem of gut microbes for tens of thousands of years.",
+      "kr": "종합하면, 이번 연구 결과는 수렵·채집인들이 수만 년 동안 독특한 장내 미생물 생태계를 공유해 왔음을 암시합니다."
     },
     {
-      "en": "While researching ways to deodorize them, he found advice on examining and freezing books to get rid of pests.",
-      "kr": "책 냄새를 없애는 방법을 알아보던 중, 그는 해충을 없애기 위해 책을 검사하고 얼리라는 조언을 발견했습니다."
+      "en": "\"Our biology has probably been shaped by these microbes to a large degree,\" Sonnenburg said.",
+      "kr": "\"우리의 생물학적 특성은 아마도 이 미생물들에 의해 상당 부분 형성되었을 것입니다\"라고 소넨버그는 말했습니다."
     },
     {
-      "en": "He later posted a video about the practice and was surprised at the attention it received.",
-      "kr": "그는 나중에 이 방법에 관한 영상을 올렸는데, 그 영상이 받은 관심에 놀랐습니다."
+      "en": "The ancestral bacteria might have been important for training our immune systems, for example, or synthesizing compounds our bodies need.",
+      "kr": "예를 들어 조상 대대로 이어져 온 박테리아는 우리의 면역 체계를 훈련시키거나 우리 몸에 필요한 화합물을 합성하는 데 중요했을 수 있습니다."
     },
     {
-      "en": "Some viewers were encountering the idea of book lice for the first time.",
-      "kr": "일부 시청자들은 책좀이라는 개념을 처음 접했습니다."
+      "en": "And as some microbes vanished in modern societies, new ones took their place.",
+      "kr": "그리고 현대 사회에서 일부 미생물이 사라지면서 새로운 미생물들이 그 자리를 대신했습니다."
     },
     {
-      "en": "Others debated whether freezing would actually work.",
-      "kr": "다른 사람들은 얼리는 것이 실제로 효과가 있을지 논쟁을 벌였습니다."
+      "en": "That shift may be impacting our health.",
+      "kr": "그러한 변화는 우리의 건강에 영향을 미치고 있을 수 있습니다."
     },
     {
-      "en": "The answer is yes.",
-      "kr": "답은 ‘그렇다’입니다."
+      "en": "\"You end up with a microbiome that's very different than what your human genome has come to expect,\" perhaps triggering inflammation and other unhealthy changes, Sonnenburg said.",
+      "kr": "\"결국 여러분은 인간의 유전자가 기대해 온 것과는 아주 다른 마이크로바이옴을 갖게 되며\", 이는 아마도 염증과 그 밖의 건강에 해로운 변화를 촉발할 수 있다고 소넨버그는 말했습니다."
     },
     {
-      "en": "Kristi Westberg, interim head of preservation and conservation at the Huntington Library, Art Museum and Botanical Gardens in San Marino, California, confirms that freezing is an effective way to deal with bugs in books.",
-      "kr": "캘리포니아주 샌머리노에 있는 헌팅턴 도서관·미술관·식물원의 보존·복원 임시 책임자 크리스티 웨스트버그(Kristi Westberg)는 냉동이 책 속 벌레를 처리하는 효과적인 방법임을 확인해 줍니다."
+      "en": "But Marie-Claire Arrieta, a microbiome scientist at the University of Alberta who was not involved in the research, cautioned that people in industrialized countries should not try to culture a hunter-gatherer microbiome.",
+      "kr": "하지만 이번 연구에는 참여하지 않은 앨버타 대학교의 마이크로바이옴 과학자 마리-클레어 아리에타(Marie-Claire Arrieta)는 산업화된 국가의 사람들이 수렵·채집인의 마이크로바이옴을 배양하려 해서는 안 된다고 경고했습니다."
     },
     {
-      "en": "There’s more to freezing a book than just tossing it next to the ice cream.",
-      "kr": "책을 얼리는 것은 단지 아이스크림 옆에 던져 넣는 것보다 훨씬 더 많은 것을 요구합니다."
+      "en": "Instead, Arrieta favored learning about the helpful things that the ancestral microbes can do in the human body, and finding ways to restore those particular functions.",
+      "kr": "대신 아리에타는 조상 대대로 이어져 온 미생물이 인체에서 할 수 있는 유익한 일들을 알아내고, 그러한 특정 기능들을 회복할 방법을 찾는 쪽을 선호했습니다."
     },
     {
-      "en": "Books should be placed in a sealed bag before freezing.",
-      "kr": "책은 얼리기 전에 밀봉된 봉투에 넣어야 합니다."
+      "en": "\"The message that we should go back to ancient microbiomes doesn't make a lot of sense,\" Arrieta said.",
+      "kr": "\"고대의 마이크로바이옴으로 돌아가야 한다는 주장은 별로 이치에 맞지 않습니다\"라고 아리에타는 말했습니다."
     },
     {
-      "en": "That keeps insects away from food and prevents condensation from forming on the book as it thaws.",
-      "kr": "그렇게 하면 벌레가 음식에 접근하는 것을 막고, 해동될 때 책에 물방울(결로)이 생기는 것도 방지할 수 있습니다."
-    },
-    {
-      "en": "Westberg recommends leaving books in the freezer for at least three days, and up to six days for extra caution.",
-      "kr": "웨스트버그는 책을 냉동실에 최소 3일, 더 조심하려면 최대 6일까지 넣어 둘 것을 권합니다."
-    },
-    {
-      "en": "For serious infestations, a second round of freezing can be worthwhile, because eggs laid by certain insects may survive the first freezing session and hatch later.",
-      "kr": "해충이 심하게 번식한 경우에는 두 번째 냉동이 가치가 있을 수 있는데, 특정 곤충이 낳은 알은 첫 번째 냉동을 견뎌내고 나중에 부화할 수 있기 때문입니다."
-    },
-    {
-      "en": "But freezing solves only one part of the problem.",
-      "kr": "하지만 냉동은 문제의 한 부분만 해결합니다."
-    },
-    {
-      "en": "\"Freezing addresses the pests, but if you don’t fix the source of the problem, they could return,\" Westberg said.",
-      "kr": "\"냉동은 해충을 처리하지만, 문제의 근원을 고치지 않으면 해충이 다시 돌아올 수 있습니다\"라고 웨스트버그는 말했습니다."
-    },
-    {
-      "en": "Don’t keep your books in the garage.",
-      "kr": "책을 차고에 보관하지 마세요."
-    },
-    {
-      "en": "Humidity is a particular concern because moisture can encourage mold growth, and mold and fungi can, in turn, provide food for book lice.",
-      "kr": "습도는 특히 우려되는 요소인데, 습기가 곰팡이 성장을 촉진할 수 있고, 곰팡이와 균류는 다시 책좀의 먹이가 될 수 있기 때문입니다."
-    },
-    {
-      "en": "Westberg’s advice is simple: Avoid storing books in attics, basements or garages, where temperature and humidity can fluctuate.",
-      "kr": "웨스트버그의 조언은 간단합니다. 온도와 습도가 오르내릴 수 있는 다락방, 지하실, 차고에 책을 보관하지 말라는 것입니다."
-    },
-    {
-      "en": "Instead, aim for a stable environment — roughly 60 to 77 degrees Fahrenheit and 40% to 60% relative humidity.",
-      "kr": "대신 안정적인 환경을 목표로 하세요. 대략 화씨 60~77도(섭씨 약 15.6~25도), 상대습도 40~60%가 적당합니다."
-    },
-    {
-      "en": "For books that are especially meaningful or valuable, take an extra step: Put them in a box.",
-      "kr": "특별히 의미가 있거나 값진 책이라면 한 단계 더 나아가 상자에 넣어 두세요."
-    },
-    {
-      "en": "Boxing a book is an easy way to extend its life, said book conservator Jeff Peachey, owner of Peachey Conservation in New York.",
-      "kr": "책을 상자에 넣는 것은 책의 수명을 늘리는 쉬운 방법이라고, 뉴욕의 피치 컨서베이션(Peachey Conservation) 대표이자 책 보존가인 제프 피치(Jeff Peachey)는 말했습니다."
-    },
-    {
-      "en": "\"It’s a really great way to insulate your books from the light, mitigate some environmental changes and also just give it some physical protection all in one,\" he said.",
-      "kr": "\"그것은 책을 빛으로부터 차단하고, 환경 변화를 완화하며, 물리적 보호까지 한 번에 제공하는 정말 훌륭한 방법입니다\"라고 그는 말했습니다."
-    },
-    {
-      "en": "\"Two thumbs up for protective enclosures.\"",
-      "kr": "\"보호용 케이스에 두 엄지 척, 강력 추천합니다.\""
-    },
-    {
-      "en": "Before you buy a thrifted book, give it a sniff.",
-      "kr": "중고 서점에서 산 책을 사기 전에 냄새를 한번 맡아 보세요."
-    },
-    {
-      "en": "Books with obvious water or mold damage — in the form of discoloration, swelling or stuck-together pages — are recycled rather than put on the shelves, Savage said.",
-      "kr": "변색, 부풀어 오름, 페이지가 서로 달라붙음 같은 형태로 물이나 곰팡이 피해가 명백한 책들은 진열대에 놓이지 않고 재활용된다고 새비지(Savage)는 말했습니다."
-    },
-    {
-      "en": "But he’s careful to distinguish books damaged by mold from those with fading from sun damage or that give off the characteristic smell of an older book.",
-      "kr": "하지만 그는 곰팡이로 손상된 책을, 햇빛에 의한 퇴색이 있거나 오래된 책 특유의 냄새를 풍기는 책과 구분하는 데 신중을 기합니다."
-    },
-    {
-      "en": "For readers trying to tell the difference themselves, a musty or mildewlike smell is worth noting, particularly if it comes with visible spotting or evidence of water damage.",
-      "kr": "그 차이를 스스로 구분하려는 독자라면, 특히 눈에 보이는 얼룩이나 물에 젖은 흔적이 동반될 경우 퀴퀴하거나 곰팡이 같은 냄새를 눈여겨봐야 합니다."
-    },
-    {
-      "en": "Smell alone isn’t a definitive test, but it can signal moisture exposure.",
-      "kr": "냄새만으로는 결정적인 판단 기준이 되지 않지만, 습기에 노출됐다는 신호가 될 수는 있습니다."
-    },
-    {
-      "en": "If a used book smells distinctly musty, separate it from your other books.",
-      "kr": "중고 책에서 뚜렷하게 퀴퀴한 냄새가 난다면, 다른 책들과 분리해 두세요."
+      "en": "\"But, for sure, they're important to study to understand some of these microbial functions that have been lost.\"",
+      "kr": "\"하지만 분명한 것은, 잃어버린 이러한 미생물 기능 일부를 이해하기 위해서라도 그것들을 연구하는 것이 중요하다는 점입니다.\""
     }
   ]
 }
