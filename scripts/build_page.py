@@ -22,7 +22,8 @@ Day JSON schema:
 import argparse, html, json, os, re, shutil, subprocess, sys
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-VOICE = "Samantha"
+VOICE = "Karen"
+RATE = "185"
 BITRATE = "32000"
 
 CSS = """
@@ -177,7 +178,7 @@ def gen_audio(texts, outdir):
     for i, t in enumerate(texts, 1):
         aiff = os.path.join(outdir, f"t{i:02d}.aiff")
         m4a = os.path.join(outdir, f"s{i:02d}.m4a")
-        subprocess.run(["say", "-v", VOICE, "-o", aiff, t], check=True)
+        subprocess.run(["say", "-v", VOICE, "-r", RATE, "-o", aiff, t], check=True)
         subprocess.run(["afconvert", "-f", "m4af", "-d", f"aac@{BITRATE}", "-c", "1", aiff, m4a], check=True)
         os.remove(aiff)
     return outdir
