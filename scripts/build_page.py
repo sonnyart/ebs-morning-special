@@ -40,9 +40,9 @@ CSS = """
   .kicker { font-size:12px; letter-spacing:1.5px; color:var(--accent); font-weight:700; text-transform:uppercase; }
   h1 { font-size:27px; margin:8px 0 6px; line-height:1.3; }
   .byline { color:var(--kr); font-size:14px; }
-  .fav { flex:0 0 42px; height:42px; border:none; background:transparent; color:#c9a86a; font-size:24px; cursor:pointer; line-height:1; padding:0; }
-  .fav:hover { transform:scale(1.18); color:#e0a400; }
-  .fav.on { color:#e0a400; }
+  .dayfav { border:1px solid var(--accent); background:#fff; color:var(--accent); border-radius:999px; padding:7px 15px; font-size:14px; font-weight:600; cursor:pointer; margin-top:12px; }
+  .dayfav:hover { background:var(--accent); color:#fff; }
+  .dayfav.on { background:#e0a400; border-color:#e0a400; color:#fff; }
   .favlink { margin-left:auto; border:1px solid var(--accent); background:#fff; color:var(--accent); border-radius:999px; padding:9px 15px; font-size:14px; font-weight:600; text-decoration:none; }
   .favlink:hover { background:var(--accent); color:#fff; }
   .item { display:flex; gap:14px; align-items:flex-start; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:15px; margin-bottom:12px; }
@@ -76,18 +76,18 @@ function buildSelect(){
 }
 
 const ICON_PLAY='&#9654;', ICON_PAUSE='&#10074;&#10074;';
-const FAV_KEY='ebs_ms_favs';
-function getFavs(){ try{ return JSON.parse(localStorage.getItem(FAV_KEY)||'[]'); }catch(e){ return []; } }
-function setFavs(v){ localStorage.setItem(FAV_KEY, JSON.stringify(v)); }
-function isFav(id){ return getFavs().some(f=>f.id===id); }
-function toggleFav(d, n, btn){
-  const id=d.slug+':'+n;
-  let favs=getFavs();
-  const i=favs.findIndex(f=>f.id===id);
-  if(i>=0){ favs.splice(i,1); } else { favs.push({id:id, slug:d.slug, date:d.date, title_en:d.title_en, en:d.sentences[n-1].en, kr:d.sentences[n-1].kr, n:n}); }
-  setFavs(favs);
-  btn.innerHTML = i>=0 ? '&#9734;' : '&#9733;';
-  btn.classList.toggle('on', i<0);
+const FAV_KEY='ebs_ms_fav_days';
+function getFavDays(){ try{ return JSON.parse(localStorage.getItem(FAV_KEY)||'[]'); }catch(e){ return []; } }
+function setFavDays(v){ localStorage.setItem(FAV_KEY, JSON.stringify(v)); }
+function isFavDay(slug){ return getFavDays().some(f=>f.slug===slug); }
+function toggleFavDay(d, btn){
+  let favs=getFavDays();
+  const i=favs.findIndex(f=>f.slug===d.slug);
+  if(i>=0){ favs.splice(i,1); } else { favs.push({slug:d.slug, date:d.date, title_en:d.title_en}); }
+  setFavDays(favs);
+  const on = i<0;
+  btn.innerHTML = on ? '&#9733; 즐겨찾기' : '&#9734; 즐겨찾기';
+  btn.classList.toggle('on', on);
 }
 function resetBtns(){ document.querySelectorAll('.play').forEach(b=>{b.classList.remove('playing','paused'); b.innerHTML=ICON_PLAY;}); }
 function stop(){
@@ -121,26 +121,26 @@ function render(i, push){
     +'<button class="play" data-i="'+(n+1)+'" aria-label="Play">&#9654;</button>'
     +'<div class="text"><div class="en"><span class="num">'+(n+1)+'.</span>'+esc(s.en)+'</div>'
     +'<div class="kr">'+esc(s.kr)+'</div></div>'
-    +'<button class="fav" data-i="'+(n+1)+'" aria-label="즐겨찾기">&#9734;</button>'
     +'<audio id="a'+(n+1)+'" preload="none" src="audio/'+d.slug+'/s'+String(n+1).padStart(2,'0')+'.m4a"></audio>'
     +'</div>').join('');
   view.innerHTML='<header>'
     +'<div class="kicker">EBS 모닝스페셜 · News Coverage from The New York Times</div>'
     +'<h1>'+esc(d.title_en)+'</h1>'
     +'<div class="byline">'+esc(d.author)+' · '+esc(d.copyright)+' · '+esc(d.date)+'</div>'
+    +'<button class="dayfav" aria-label="이 날짜 즐겨찾기">&#9734; 즐겨찾기</button>'
     +'</header>'
     +rows
     +'<div class="foot">출처: EBS 최수진의 모닝스페셜 방송 내용 게시판 · <a href="'+esc(d.source_url)+'" target="_blank" rel="noopener">원문 보기</a><br>'
     +'본 텍스트는 학습용으로 정리한 것으로 원문과 다를 수 있습니다.</div>';
 
   view.querySelectorAll('.play').forEach(b=>b.addEventListener('click',()=>toggle(parseInt(b.dataset.i),b)));
-  view.querySelectorAll('.fav').forEach(b=>{
-    const n=parseInt(b.dataset.i);
-    const on=isFav(d.slug+':'+n);
-    b.innerHTML=on?'&#9733;':'&#9734;';
-    b.classList.toggle('on',on);
-    b.addEventListener('click',()=>toggleFav(d,n,b));
-  });
+  const df=view.querySelector('.dayfav');
+  if(df){
+    const on=isFavDay(d.slug);
+    df.innerHTML=on?'&#9733; 즐겨찾기':'&#9734; 즐겨찾기';
+    df.classList.toggle('on',on);
+    df.addEventListener('click',()=>toggleFavDay(d,df));
+  }
 
   sel.value=i;
   document.getElementById('prevDay').disabled = i>=DAYS.length-1;

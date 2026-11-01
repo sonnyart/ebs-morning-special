@@ -14,74 +14,46 @@
   .kicker { font-size:12px; letter-spacing:1.5px; color:var(--accent); font-weight:700; text-transform:uppercase; }
   h1 { font-size:27px; margin:8px 0 6px; line-height:1.3; }
   .sub { color:var(--kr); font-size:14px; }
-  .dayhead { margin:22px 0 10px; font-size:15px; font-weight:700; color:var(--accent); }
-  .dayhead a { color:var(--accent); text-decoration:none; }
-  .item { display:flex; gap:14px; align-items:flex-start; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:15px; margin-bottom:12px; }
-  .play { flex:0 0 44px; height:44px; border-radius:50%; border:none; background:var(--accent); color:#fff; font-size:15px; cursor:pointer; transition:transform .1s; }
-  .play:hover { transform:scale(1.08); }
-  .play.playing { background:#2e7d5b; }
-  .text { flex:1; }
-  .en { font-size:17px; font-weight:500; margin-bottom:4px; }
-  .kr { color:var(--kr); font-size:15px; }
-  .del { flex:0 0 40px; height:40px; border:none; background:transparent; color:#e0a400; font-size:24px; cursor:pointer; line-height:1; }
+  .card { display:flex; gap:12px; align-items:center; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:15px; margin:12px 0; }
+  .go { flex:1; text-decoration:none; color:var(--ink); display:block; }
+  .go:hover .title { color:var(--accent); }
+  .date { font-size:13px; font-weight:700; color:var(--accent); }
+  .title { font-size:17px; font-weight:600; margin-top:2px; }
+  .del { flex:0 0 42px; height:42px; border:none; background:transparent; color:#e0a400; font-size:24px; cursor:pointer; line-height:1; }
   .del:hover { transform:scale(1.15); }
   .empty { text-align:center; color:var(--kr); padding:60px 20px; font-size:15px; }
-  @media (max-width:520px) { h1 { font-size:22px; } .en { font-size:16px; } }
+  @media (max-width:520px) { h1 { font-size:22px; } .title { font-size:16px; } }
 </style></head><body><div class="wrap">
 <div class="top"><a href="index.html">&#8592; 학습 페이지</a></div>
 <header>
   <div class="kicker">EBS 모닝스페셜 · News Coverage</div>
   <h1>&#9733; 즐겨찾기 모음</h1>
-  <div class="sub">학습 페이지에서 문장 옆 별표(☆)를 눌러 저장한 문장이 여기에 모입니다.</div>
+  <div class="sub">학습 페이지에서 날짜별 ★ 즐겨찾기 버튼을 눌러 저장한 방송이 여기에 모입니다.</div>
 </header>
 <div id="list"></div>
 </div>
 <script>
-const FAV_KEY='ebs_ms_favs';
-const ICON_PLAY='&#9654;', ICON_PAUSE='&#10074;&#10074;';
-function getFavs(){ try{ return JSON.parse(localStorage.getItem(FAV_KEY)||'[]'); }catch(e){ return []; } }
-function setFavs(v){ localStorage.setItem(FAV_KEY, JSON.stringify(v)); }
-let current=null, currentBtn=null;
-function stop(){ document.querySelectorAll('audio').forEach(a=>{a.pause();a.currentTime=0;}); if(current)current.removeEventListener('ended',onEnded); current=null;currentBtn=null; document.querySelectorAll('.play').forEach(b=>{b.classList.remove('playing');b.innerHTML=ICON_PLAY;}); }
-function onEnded(){ if(currentBtn){currentBtn.classList.remove('playing');currentBtn.innerHTML=ICON_PLAY;} current=null;currentBtn=null; }
+const FAV_KEY='ebs_ms_fav_days';
+function getFavDays(){ try{ return JSON.parse(localStorage.getItem(FAV_KEY)||'[]'); }catch(e){ return []; } }
+function setFavDays(v){ localStorage.setItem(FAV_KEY, JSON.stringify(v)); }
 function esc(s){ const d=document.createElement('div'); d.textContent=s==null?'':String(s); return d.innerHTML; }
-function play(i, btn){
-  const a=document.getElementById('a'+i);
-  if(!a)return;
-  if(current===a && !a.paused){ a.pause(); btn.classList.remove('playing'); btn.innerHTML=ICON_PLAY; return; }
-  if(current===a && a.paused){ a.play().catch(()=>{}); btn.classList.add('playing'); btn.innerHTML=ICON_PAUSE; return; }
-  stop();
-  current=a;currentBtn=btn;
-  btn.classList.add('playing'); btn.innerHTML=ICON_PAUSE;
-  a.addEventListener('ended',onEnded);a.play().catch(()=>{});
-}
-function pad(n){ return String(n).padStart(2,'0'); }
 function render(){
-  const favs=getFavs();
+  const favs=getFavDays().slice().sort((a,b)=>(b.slug||'').localeCompare(a.slug||''));
   const list=document.getElementById('list');
-  if(!favs.length){ list.innerHTML='<div class="empty">아직 저장한 문장이 없습니다.<br>학습 페이지에서 문장 옆 ☆ 버튼을 눌러 보세요.</div>'; return; }
-  const byDay={};
-  favs.forEach(f=>{ (byDay[f.slug]=byDay[f.slug]||[]).push(f); });
-  const slugs=Object.keys(byDay).sort().reverse();
-  let html='', gi=0;
-  slugs.forEach(slug=>{
-    const day=byDay[slug].sort((a,b)=>a.n-b.n);
-    html+='<div class="dayhead"><a href="index.html#'+esc(slug)+'">'+esc(day[0].date)+' · '+esc(day[0].title_en)+'</a></div>';
-    day.forEach(f=>{
-      html+='<div class="item">'
-        +'<button class="play" data-i="'+gi+'" aria-label="재생">&#9654;</button>'
-        +'<div class="text"><div class="en">'+esc(f.en)+'</div><div class="kr">'+esc(f.kr)+'</div></div>'
-        +'<button class="del" data-id="'+esc(f.id)+'" aria-label="삭제">&#9733;</button>'
-        +'<audio id="a'+gi+'" preload="none" src="audio/'+esc(slug)+'/s'+pad(f.n)+'.m4a"></audio>'
-        +'</div>';
-      gi++;
-    });
+  if(!favs.length){ list.innerHTML='<div class="empty">아직 저장한 날짜가 없습니다.<br>학습 페이지에서 날짜별 ★ 즐겨찾기 버튼을 눌러 보세요.</div>'; return; }
+  let html='';
+  favs.forEach(f=>{
+    html+='<div class="card">'
+      +'<a class="go" href="index.html#'+esc(f.slug)+'">'
+      +'<div class="date">'+esc(f.date)+'</div>'
+      +'<div class="title">'+esc(f.title_en)+'</div>'
+      +'</a>'
+      +'<button class="del" data-slug="'+esc(f.slug)+'" aria-label="삭제">&#9733;</button>'
+      +'</div>';
   });
   list.innerHTML=html;
-  document.querySelectorAll('.play').forEach(b=>b.addEventListener('click',()=>play(parseInt(b.dataset.i),b)));
   document.querySelectorAll('.del').forEach(b=>b.addEventListener('click',()=>{
-    const id=b.dataset.id;
-    setFavs(getFavs().filter(f=>f.id!==id));
+    setFavDays(getFavDays().filter(f=>f.slug!==b.dataset.slug));
     render();
   }));
 }
