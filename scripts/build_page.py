@@ -22,8 +22,8 @@ Day JSON schema:
 import argparse, html, json, os, re, shutil, subprocess, sys
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-VOICE = "Karen"
-RATE = "185"
+VOICE = "Kathy"
+RATE = "190"
 BITRATE = "32000"
 
 CSS = """
